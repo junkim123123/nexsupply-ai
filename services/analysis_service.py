@@ -229,13 +229,15 @@ def enrich_analysis_result(
     
     if product_name or product_category:
         try:
-            risk_warnings = generate_all_risks(
+            risk_data = generate_all_risks(
                 product_name=product_name or product_category,
                 product_category=product_category,
                 market=market,
                 estimated_lead_time=lead_time
             )
-            result['risk_warnings'] = risk_warnings
+            # Separate warnings from macro analysis scores
+            result['risk_warnings'] = risk_data.get("warnings", [])
+            result['macro_analysis'] = risk_data.get("macro_analysis", {})
         except Exception as e:
             logger.warning(f"Risk engine failed: {e}")
     

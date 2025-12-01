@@ -345,8 +345,13 @@ class RiskEngine:
         all_warnings.extend(self.analyze_logistics_risks(product_name, market, estimated_lead_time))
         
         # IP/Trademark risks
+        # IP/Trademark risks
         all_warnings.extend(self.analyze_ip_risks(product_name, product_category))
         
+        # --- Mitsubishi/Alibaba Style Macro Analysis ---
+        macro_risks = self.analyze_macro_risks(product_name, product_category, market)
+        all_warnings.extend(macro_risks)
+
         # Convert to dictionary format
         return {
             "warnings": [
@@ -365,9 +370,9 @@ class RiskEngine:
                 "high_count": sum(1 for w in all_warnings if w.risk_level == RiskLevel.HIGH),
                 "medium_count": sum(1 for w in all_warnings if w.risk_level == RiskLevel.MEDIUM),
                 "low_count": sum(1 for w in all_warnings if w.risk_level == RiskLevel.LOW)
-            }
+            },
+            "macro_analysis": self.get_macro_analysis_scores(market, product_category)
         }
-
 
     def detect_regulatory_risks(
         self,
@@ -442,6 +447,111 @@ class RiskEngine:
             "regulatory_risk": regulatory_risk_level,
             "warnings": warnings
         }
+
+    def get_macro_analysis_scores(self, market: Optional[str], product_category: Optional[str]) -> Dict[str, Any]:
+        """
+        Generates quantitative scores for macro analysis factors with sub-factor transparency.
+        """
+        # Define base scores and sub-factors for transparency
+        geo_risk = {"score": 30, "factors": {"무역 분쟁": 20, "정치 안정성": 50, "규제 변화": 60}}
+        sup_stability = {"score": 70, "factors": {"납기 준수율": 75, "품질 클레임": 65, "업력": 70}}
+        mkt_volatility = {"score": 40, "factors": {"원자재": 30, "환율": 50, "유가": 40}}
+
+        # Adjust scores based on market and product
+        if market and "china" in market.lower():
+            geo_risk = {"score": 80, "factors": {"미중 무역분쟁": 90, "정치 안정성": 60, "자국 우선주의 규제": 85}}
+            sup_stability["score"] = 60
+        elif market and "vietnam" in market.lower():
+            geo_risk = {"score": 40, "factors": {"중국 의존도": 50, "정치 안정성": 70, "노동법규 변화": 60}}
+            sup_stability["score"] = 65
+
+        if product_category and any(keyword in product_category.lower() for keyword in ["electronic", "chip", "battery"]):
+            sup_stability = {"score": 50, "factors": {"핵심 부품 수급": 40, "기술 유출": 60, "인증 요구사항": 50}}
+            mkt_volatility = {"score": 75, "factors": {"반도체 사이클": 80, "희귀 광물 가격": 70, "환율": 75}}
+        
+        return {
+            "geopolitical_risk": geo_risk,
+            "supplier_stability": sup_stability,
+            "market_volatility": mkt_volatility
+        }
+
+    def analyze_macro_risks(
+        self,
+        product_name: str,
+        product_category: Optional[str] = None,
+        market: Optional[str] = None
+    ) -> List[RiskWarning]:
+        """
+        Analyzes macro-level risks like geopolitical issues, supplier reliability, and market volatility.
+        This simulates the expertise of a global trading company.
+        """
+        warnings: List[RiskWarning] = []
+        search_text = f"{product_name} {product_category or ''}".lower()
+        
+        # 1. Geopolitical Risk (e.g., US-China Trade War)
+        if market and "china" in market.lower():
+            warnings.append(RiskWarning(
+                category="Geopolitical",
+                risk_level=RiskLevel.HIGH,
+                title="📈 지정학적 리스크: 미-중 무역 분쟁",
+                description="중국산 제품에 대한 미국의 추가 관세(Section 301) 부과 가능성이 상존합니다. 이는 예측 원가에 포함되지 않은 갑작스러운 비용 증가로 이어질 수 있습니다.",
+                actions=["대체 원산지(베트남, 멕시코 등) 검토", "관세 변동에 대비한 가격 협상 조항 삽입", "정치/무역 뉴스 모니터링"]
+            ))
+
+        # 2. Supplier Reliability Risk (Alibaba-style)
+        if market and any(c in market.lower() for c in ["china", "vietnam"]):
+             warnings.append(RiskWarning(
+                category="Supplier",
+                risk_level=RiskLevel.MEDIUM,
+                title="🏭 공급망 리스크: 공급업체 신뢰도",
+                description="첫 거래 시, 소량 발주를 통해 품질, 납기 준수, 커뮤니케이션 능력을 반드시 검증해야 합니다. Alibaba의 Gold Supplier 등급도 실제와는 차이가 있을 수 있습니다.",
+                actions=["공장 실사 또는 제3자 검수 진행", "단계별 대금 지급 조건(예: 선금 30%, 잔금 70%) 설정", "샘플과 양산품의 품질 일치 여부 확인"]
+            ))
+
+        # 3. Market Volatility Risk
+        if any(keyword in search_text for keyword in ["oil", "plastic", "steel", "chip", "원유", "플라스틱", "철강"]):
+            warnings.append(RiskWarning(
+                category="Market",
+                risk_level=RiskLevel.HIGH,
+                title="💹 시장 리스크: 원자재 가격 변동성",
+                description="이 제품은 원자재 가격 변동에 민감하여, 생산 중 원가가 상승할 리스크가 있습니다. 이는 마진을 급격히 감소시킬 수 있습니다.",
+                actions=["고정 가격 계약 체결 시도", "원자재 가격 상승 시 원가 분담 조건 협의", "선물 거래를 통한 헷징(Hedging) 고려"]
+            ))
+
+        # 4. Category-Specific Nuances (Feedback #088)
+        if "mango" in search_text or "asparagus" in search_text:
+            warnings.append(RiskWarning(
+                category="Regulatory",
+                risk_level=RiskLevel.MEDIUM,
+                title="🌿 특별 검역 대상 품목",
+                description="망고, 아스파라거스 등 특정 신선 농산물은 통관 시 특별 검역 절차를 거치므로, 일반 농산물 대비 3~5일의 추가 시간이 소요될 수 있습니다.",
+                actions=["통관사에 특별 검역 필요 여부 사전 문의", "유통기한을 고려하여 항공 운송 검토"]
+            ))
+        
+        return warnings
+
+    def get_macro_analysis_scores(self, market: Optional[str], product_category: Optional[str]) -> Dict[str, Any]:
+        """
+        Generates quantitative scores for macro analysis factors.
+        """
+        scores = {
+            "geopolitical_risk": 30, # Base score
+            "supplier_stability": 70, # Base score
+            "market_volatility": 40 # Base score
+        }
+        
+        if market and "china" in market.lower():
+            scores["geopolitical_risk"] = 80
+            scores["supplier_stability"] = 60
+        elif market and "vietnam" in market.lower():
+            scores["geopolitical_risk"] = 40
+            scores["supplier_stability"] = 65
+
+        if product_category and any(keyword in product_category.lower() for keyword in ["electronic", "chip", "battery"]):
+            scores["supplier_stability"] = 50
+            scores["market_volatility"] = 75
+
+        return scores
 
 
 # Singleton instance

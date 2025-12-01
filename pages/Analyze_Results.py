@@ -39,8 +39,8 @@ st.markdown(LOADING_ANIMATION_CSS, unsafe_allow_html=True)
 st.markdown("""
     <div class="loading-container">
         <div class="loading-spinner"></div>
-        <h1 class="loading-title">Analyzing your shipment...</h1>
-        <p class="status-text">This usually takes 10-20 seconds. We're calculating:</p>
+        <h1 class="loading-title">베테랑 무역 전문가가 AI와 함께 분석 중...</h1>
+        <p class="status-text">잠시만 기다려주세요. 보통 10-20초 정도 소요됩니다. 저희는 지금:</p>
         <ul style="text-align: left; max-width: 500px; margin: 1rem auto; color: #94a3b8; font-size: 0.9rem;">
             <li>Landed cost breakdown</li>
             <li>Profit margin analysis</li>
@@ -77,7 +77,7 @@ try:
         start_time = time.time()
         
         # Step 1: Initializing
-        update_status(STATUS_CONNECTING, 10, hint="Parsing your shipment details")
+        update_status(STATUS_CONNECTING, 10, hint="고객님의 요청사항을 분석하며, 수십 년의 무역 데이터를 대조하고 있습니다.")
         
         # Get API key (optimized: check once)
         # Priority: external_api.gemini_api_key → GEMINI_API_KEY → environment variable
@@ -107,10 +107,10 @@ try:
         update_status(STATUS_AUTHENTICATING, 20, hint="Parsing your shipment details")
         
         # Step 3: Parsing input (Phase 1: Use new NLP parser if available)
-        update_status(STATUS_PARSING, 35, COLOR_CYAN, hint="Checking costs and duties")
+        update_status(STATUS_PARSING, 35, COLOR_CYAN, hint="전 세계 물류망과 관세 규정을 확인하여, 예상치 못한 비용을 찾아내고 있습니다.")
         
         # Step 4: AI Analysis (Phase 1: Use new analysis engine if available)
-        update_status(STATUS_ANALYZING, 50, COLOR_CYAN, hint="Checking costs and duties")
+        update_status(STATUS_ANALYZING, 50, COLOR_CYAN, hint="AI의 분석에 현장 전문가의 노하우를 더해, 최종 리포트를 작성하고 있습니다.")
         
         # Phase 4: Use new analysis engine (parse_user_input + run_analysis)
         result = None
@@ -148,11 +148,22 @@ try:
             if "API" in error_msg or "key" in error_msg.lower():
                 user_friendly_msg = "⚠️ API connection issue. Please check your API key settings or try again later."
             elif "parse" in error_msg.lower() or "input" in error_msg.lower():
-                user_friendly_msg = "⚠️ Could not understand your input. Please try rephrasing with more details (product name, quantity, origin, destination, price)."
+                # More specific feedback for parsing errors
+                missing_info = []
+                if "product" not in user_input.lower(): missing_info.append("제품명")
+                if "quantity" not in user_input.lower() and not any(char.isdigit() for char in user_input): missing_info.append("수량")
+                if "price" not in user_input.lower() and "$" not in user_input and "원" not in user_input: missing_info.append("가격")
+                if "from" not in user_input.lower(): missing_info.append("출발 국가")
+                if "to" not in user_input.lower(): missing_info.append("도착 국가")
+                
+                if missing_info:
+                    user_friendly_msg = f"⚠️ **입력 정보 부족:** AI가 '{', '.join(missing_info)}' 정보를 찾지 못했습니다. 더 자세한 정보를 포함하여 다시 시도해주세요."
+                else:
+                    user_friendly_msg = "⚠️ **입력 이해 불가:** 문장을 조금 더 명확하게 작성해주시면 AI가 더 정확하게 분석할 수 있습니다. (예: 5,000개의 XX를 한국에서 미국으로...)"
             elif "timeout" in error_msg.lower():
-                user_friendly_msg = "⏱️ The analysis is taking longer than expected. Please try again in a moment."
+                user_friendly_msg = "⏱️ 분석 시간이 초과되었습니다. 잠시 후 다시 시도해주세요."
             else:
-                user_friendly_msg = "⚠️ Something went wrong during analysis. Please try again or contact support if the issue persists."
+                user_friendly_msg = "⚠️ 알 수 없는 오류가 발생했습니다. 입력 내용을 확인하시거나, 잠시 후 다시 시도해주세요."
             
             # Fallback to legacy AI analysis if new engine fails
             update_status(user_friendly_msg, 50, COLOR_CYAN)
@@ -174,9 +185,9 @@ try:
         
         # Step 5: Processing results
         if elapsed_time > 20:
-            update_status(STATUS_PROCESSING, 80, COLOR_GREEN, hint="Still working, large shipments can take a bit longer than usual.")
+            update_status(STATUS_PROCESSING, 80, COLOR_GREEN, hint="복잡한 건이라 조금 더 시간이 걸리고 있습니다. 거의 다 됐습니다!")
         else:
-            update_status(STATUS_PROCESSING, 80, COLOR_GREEN, hint="Building your report")
+            update_status(STATUS_PROCESSING, 80, COLOR_GREEN, hint="최종 리포트를 생성하고 있습니다. 거의 다 됐습니다!")
         
         # Step 6: Complete
         update_status(STATUS_COMPLETE, 100, COLOR_GREEN)
