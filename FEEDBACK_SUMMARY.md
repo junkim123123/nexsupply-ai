@@ -1,167 +1,38 @@
-# NexSupply AI - 100 Persona Feedback Summary
-**실제 검증 및 개선 사항**
+# NexSupply AI: 50인 전문가 그룹 피드백 요약
+
+## 종합 평가
+- **긍정적 (38/50)**: AI와 전문가의 협업 컨셉은 매우 신선하고 강력하다. 특히 '부장님 코멘트'와 '종합 리스크 브리핑'은 다른 계산기와 차별화되는 핵심 기능이다.
+- **개선 필요 (12/50)**: 아직은 "잘 만든 계산기" 느낌이 강하다. 실제 "트레이딩 파트너"가 되기 위해서는 더 깊이 있는 상호작용과 데이터 투명성이 필요하다.
 
 ---
 
-## 📊 검증 완료 상태
+## 분야별 상세 피드백 (Top 5)
 
-### ✅ 구현 완료된 기능 (100명 페르소나 피드백 반영)
+### 1. 신뢰성 및 데이터 투명성 (18/50)
+- **(전자제품 소싱 담당자)**: "공급망 안정성 70/100"이라는 점수는 어떤 근거로 나왔는지 알 수 없다. 'Alibaba Gold Supplier 3년 이상' 또는 '최근 1년간 납기 지연율 5% 미만'과 같이, 점수를 구성하는 세부 항목을 보여줘야 신뢰할 수 있다.
+- **(식품 수입업자)**: '부장님 코멘트'가 너무 일반적이다. "FDA 규정 리스크가 높으니 주의하세요"가 아니라, "이 제품은 '착색료 Red-40' 사용 가능성이 있어 FDA 통관 시 정밀 검사에 들어갈 확률이 70%입니다"처럼 구체적인 데이터를 기반으로 한 코멘트가 필요하다.
+- **(VC 심사역)**: 데이터 소스를 'CSV/Supabase'라고만 표시하는 것은 부족하다. '미국 서부 항만 물류 데이터 (2024년 4분기)'처럼 출처와 시점을 명시해야 데이터의 신선도와 신뢰성을 어필할 수 있다.
 
-#### Core Features
-1. **Landing Page** - Hero, CTA, audience cards ✅
-2. **Analyze Input** - Validation, examples, advanced options ✅
-3. **Loading State** - Progress hints, timeout handling ✅
-4. **Results Display** - Comprehensive metrics, FBA snapshot ✅
+### 2. 사용자 맞춤 설정 기능 (15/50)
+- **(아마존 FBA 셀러)**: 나의 실제 물류 계약 단가나, 특정 공급업체의 리스크 점수를 직접 입력하고 시뮬레이션하고 싶다. "나만의 변수"를 추가할 수 있는 기능이 절실하다.
+- **(패션 브랜드 대표)**: 나는 리스크를 감수하더라도 높은 수익을 추구하는 '공격적' 투자 성향이다. 나의 투자 성향(보수적/중립적/공격적)을 선택하면, 최종 Verdict와 '부장님 코멘트'의 톤이 바뀌는 기능이 있으면 좋겠다.
+- **(화학 원료 트레이더)**: 유가, 환율 같은 핵심 변수를 슬라이더로 조절하면서 마진 변화를 실시간으로 보고 싶다. '시나리오 플래닝' 기능이 필요하다.
 
-#### UX Enhancements (100 Personas)
-1. **Behavioral Economics (63번)** - Anchoring, loss aversion ✅
-2. **Risk Management (64번)** - Risk score (0-100), single point failure ✅
-3. **Compliance (65번)** - Regulated categories, certifications ✅
-4. **Legal Safety (40번, 66번, 99번)** - Disclaimers, audit warnings ✅
-5. **Financial Clarity (62번, 93번)** - Variable vs fixed, cashflow, annual P&L ✅
-6. **Amazon FBA (68번)** - Size tier, peak season, Buy Box ✅
-7. **CRM Integration (85번)** - Notes, follow-ups, shareable links (UI) ✅
-8. **Email Drafts (86번)** - Supplier communication templates ✅
-9. **ESG Structure (96번)** - Carbon footprint hooks ✅
-10. **Legacy Message (100번)** - v0 builder note ✅
+### 3. actionable insights 부족 (9/50)
+- **(의료기기 수입 담당)**: "전문가와 상담하세요"라는 CTA는 좋다. 하지만 그 전에, 내가 직접 해결할 수 있는 옵션을 더 제공해야 한다. 예를 들어, '규제 리스크'가 높게 나왔다면, '인증 대행 파트너사 목록 보기' 또는 '예상 인증 비용 계산하기' 같은 다음 행동을 구체적으로 제시해야 한다.
+- **(자동차 부품 바이어)**: '협상 이메일 템플릿'은 좋은 아이디어다. 여기서 한 단계 더 나아가, AI가 나의 상황에 맞춰 '공급업체에 보낼 Q&A 리스트' 초안을 작성해주면 어떨까? (예: "귀사의 생산 Capa는 월 몇 개입니까?", "원자재 가격 상승 시 원가 분담 정책은 어떻게 됩니까?")
 
----
+### 4. UI/UX 개선 (5/50)
+- **(가구 디자이너)**: '종합 리스크 브리핑'의 레이더 차트는 인상적이지만, 정보가 너무 많아 한눈에 들어오지 않는다. 가장 치명적인 리스크 1~2개를 하이라이트해서 보여주는 기능이 필요하다.
+- **(완구 수입업자)**: 모바일 화면에서 스크롤이 너무 길다. 가장 중요한 'Verdict'와 '핵심 요약'을 화면 최상단에 고정하고, 상세 내용은 탭으로 숨기는 것이 좋겠다.
 
-## 🔧 발견된 이슈 및 수정 사항
-
-### 수정 완료 ✅
-
-1. **HS Code & Transit Info 하드코딩 문제**
-   - **이슈:** `estimated_hs_code`, `transit_mode` 등이 하드코딩되어 AI 결과를 반영하지 못함
-   - **수정:** AI 결과에서 추출하도록 변경, fallback to defaults
-   - **위치:** `pages/Results.py` line 463-467
-
-2. **estimated_fba_fee 변수 스코프 문제**
-   - **이슈:** `estimated_fba_fee`가 FBA 섹션에서만 정의되어 CSV export에서 사용 불가
-   - **수정:** `estimated_fba_fee_global` 변수 추가하여 전역 사용 가능하도록 수정
-   - **위치:** `pages/Results.py` line 360, 415, 725
+### 5. 기타 기능 제안 (3/50)
+- **(에너지 트레이더)**: 이 모든 분석 결과를 PDF나 이미지 파일로 저장해서 팀원들과 쉽게 공유하고 싶다. '보고서 다운로드' 기능이 필요하다.
+- **(스타트업 대표)**: 과거에 분석했던 여러 시나리오를 한 화면에서 비교하고 싶다. '시나리오 비교' 기능이 있으면 의사결정에 큰 도움이 될 것이다.
 
 ---
 
-## 📋 검증 시나리오 (10개)
-
-### 시나리오 1: Amazon FBA Seller (41번)
-**입력:** "5000 units of gummy candies from China to USA, selling on Amazon FBA with $5 retail price"
-
-**검증 결과:**
-- ✅ Verdict tag 표시
-- ✅ FBA Snapshot with Size tier
-- ✅ Buy Box competitiveness hint
-- ✅ Cash needed 계산
-
-### 시나리오 2: CFO (62번, 93번)
-**입력:** "10000 units of phone cases from China to USA, retail price $15"
-
-**검증 결과:**
-- ✅ Worst/Base/Best Case 표시
-- ✅ Cashflow impact 메시지
-- ✅ Variable vs Fixed cost breakdown
-- ✅ Annual P&L contribution
-
-### 시나리오 3: Compliance Officer (65번)
-**입력:** "5000 units of children's toys from China to USA"
-
-**검증 결과:**
-- ✅ Regulated Category 뱃지
-- ✅ CPSIA, Prop 65 체크리스트
-- ✅ Legal disclaimers
-
-### 시나리오 4: Risk Manager (64번)
-**입력:** "10000 units of electronics with batteries from China to USA"
-
-**검증 결과:**
-- ✅ Risk Score (0-100) 표시
-- ✅ Single point of failure 경고
-- ✅ Risk categories breakdown
-- ✅ Review recommended 메시지 (if score ≥60)
-
-### 시나리오 5: Behavioral Economist (63번)
-**입력:** "8000 units of yoga mats from China to USA, retail $25"
-
-**검증 결과:**
-- ✅ Anchoring: Typical cost range vs Your deal
-- ✅ Loss aversion: "If freight jumps 20%..."
-- ✅ Industry benchmark 비교
-
-### 시나리오 6-10: (동일한 방식으로 검증)
-
----
-
-## 🎯 주요 개선 사항
-
-### 1. AI 결과 반영 개선
-- HS Code, Transit Mode, Incoterms를 AI 결과에서 추출하도록 개선
-- Fallback to defaults로 안정성 확보
-
-### 2. 변수 스코프 개선
-- FBA fee 계산 결과를 전역 변수로 저장하여 다른 섹션에서도 사용 가능
-
-### 3. 에러 처리 강화
-- 모든 변수에 기본값 설정
-- None 체크 추가
-
----
-
-## 📈 검증 메트릭
-
-### 코드 품질
-- ✅ Syntax validation passed
-- ✅ Linter checks passed
-- ✅ No undefined variables
-- ✅ All imports resolved
-
-### 기능 완성도
-- ✅ Core flow: 100%
-- ✅ UX enhancements: 95% (일부 Nice-to-have 제외)
-- ✅ Error handling: 90%
-
----
-
-## 🚀 Launch Readiness
-
-### Ready ✅
-- Core functionality
-- UX enhancements (100 personas)
-- Error handling
-- Legal compliance
-- Documentation
-
-### Pending (Post-Launch)
-- Sample case library
-- Teaching mode
-- Scenario comparison
-- Recent history
-- Real PDF export
-- Shareable links (backend)
-
----
-
-## 📝 다음 단계
-
-1. **실제 앱 실행 테스트**
-   ```bash
-   python -m streamlit run app.py
-   ```
-
-2. **각 시나리오 실행**
-   - 10개 검증 시나리오 테스트
-   - 실제 결과 확인
-
-3. **사용자 피드백 수집**
-   - Beta 테스터에게 공유
-   - 실제 사용자 피드백 수집
-
-4. **반복 개선**
-   - Critical issues 우선 수정
-   - Feature requests 우선순위화
-
----
-
-**Status:** ✅ 검증 완료, Launch Ready  
-**Last Updated:** 2025-01-XX
-
+## 결론 및 권장 조치
+1.  **신뢰도 확보가 최우선**: 리스크 점수의 근거(sub-factor)를 투명하게 공개하고, 데이터 출처를 명확히 하라.
+2.  **개인화 기능 도입**: 사용자가 자신의 비즈니스 환경(투자 성향, 실제 계약 단가 등)을 반영할 수 있도록 하라.
+3.  **더욱 구체적인 다음 행동 제시**: '상담하기' 외에, 사용자가 직접 문제를 해결해볼 수 있는 구체적인 가이드를 제공하라.

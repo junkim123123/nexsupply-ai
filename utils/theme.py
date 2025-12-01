@@ -59,7 +59,7 @@ GLOBAL_THEME_CSS = f"""
 
     /* Main content container */
     .main .block-container {{
-        padding: 2rem 1.5rem 4rem 1.5rem;
+        padding: 1.5rem 1.25rem 4rem 1.25rem; /* Reduced padding for tighter feel */
     }}
 
     /* Hide Streamlit's default header and footer */
@@ -93,7 +93,8 @@ GLOBAL_THEME_CSS = f"""
 
     p, div, span, .stMarkdown {{
         color: rgb(var(--color-text-secondary));
-        line-height: 1.6;
+        line-height: 1.5; /* Slightly reduced line height for better density */
+        font-size: 0.95rem; /* Slightly smaller base font size */
     }}
     
     a {{
@@ -252,20 +253,23 @@ GLOBAL_THEME_CSS = f"""
     @media (max-width: 768px) {{
         /* Increase touch target size */
         .stButton > button, .stTextInput input, .stNumberInput input {{
-            min-height: 48px;
-            font-size: 1rem;
+            min-height: 44px;
+            font-size: 0.95rem;
         }}
         
         /* Reduce padding on mobile */
         .main .block-container {{
-            padding: 1rem 1rem 5rem 1rem;
+            padding: 1rem 0.5rem 5rem 0.5rem; /* Tighter mobile padding */
         }}
 
-        h1 {{ font-size: 2rem; }}
-        h2 {{ font-size: 1.75rem; }}
+        h1 {{ font-size: 1.8rem; }} /* Smaller H1 on mobile */
+        h2 {{ font-size: 1.5rem; }} /* Smaller H2 on mobile */
+        p, div, span, .stMarkdown {{
+            font-size: 0.9rem;
+        }}
 
         .glass-container {{
-            padding: 1.5rem;
+            padding: 1rem;
         }}
 
         /* Sticky 'Analyze' button on mobile for better UX */

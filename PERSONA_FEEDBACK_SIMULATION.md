@@ -1,266 +1,39 @@
-# NexSupply AI - 100 Persona Feedback Simulation
-**실제 앱 실행 및 페르소나 관점 검증**
+# NexSupply AI: 100인 페르소나 그룹의 냉정한 평가
+
+## 종합 평가
+- **회의적 (72/100)**: 컨셉은 흥미롭지만, 실제 비즈니스 결정에 사용하기에는 신뢰성과 깊이가 부족하다. 기존의 업무 방식을 대체할 만한 강력한 이유를 찾기 어렵다.
+- **제한적 긍정 (28/100)**: 초보자 교육용이나, 매우 간단한 품목의 초기 시장 조사용으로는 가치가 있을 수 있다. 하지만 '전문가'를 대체하는 것은 어불성설이다.
 
 ---
 
-## 🎯 검증 방법론
+## 페르소나 그룹별 냉정한 피드백 (발췌)
 
-100명의 페르소나 피드백을 기반으로 실제 앱을 실행하고, 각 페르소나 관점에서 검증합니다.
+### 그룹 1: 회의적인 베테랑 (25/100)
+*   **페르소나 #007 (20년차 철강 트레이더):** "결국 '부장님 코멘트'라는 것도 당신들이 만들어놓은 규칙 기반의 텍스트 아닌가? 진짜 '부장'은 환율이 1% 움직일 때, 경쟁사 사장의 표정이 어떻게 변하는지를 읽는 사람이다. AI가 그걸 할 수 있나? 이건 그냥 장난감이다."
+*   **페르소나 #015 (15년차 원단 바이어):** "공급망 안정성 점수? 웃기는 소리다. 20년 거래한 내 파트너는 '안정성' 같은 점수로는 평가할 수 없는 '신뢰'가 있다. AI가 술 한잔 사주나, 경조사를 챙겨주나? 비즈니스는 숫자가 아니라 관계로 하는 것이다."
+*   **페르소나 #021 (30년차 관세사):** "HTS 코드 하나만 잘못 찍혀도 컨테이너 전체가 묶이는데, 'AI가 추정했다'는 말로 화주를 설득할 수 있을 것 같나? 법적 책임은 누가 지나? 당신들 면책 조항만 길게 늘어놓는다고 해결될 문제가 아니다."
 
----
+### 그룹 2: 데이터에 집착하는 분석가 (25/100)
+*   **페르소나 #028 (대기업 구매팀 과장):** "그래서 이 데이터의 출처가 정확히 어디인가? '미국 서부 항만 데이터'라니, 어느 터미널, 어느 기간, 어떤 품목군에 대한 데이터인지 구체적인 명시가 없다. 우리 회사 ERP에 연동할 수 있는 API는 제공하나? 그렇지 않다면 엑셀보다 나을 게 없다."
+*   **페르소나 #033 (IB 원자재 애널리스트):** "시장 변동성 점수에 '유가'가 포함되어 있다고? WTI 기준인가, 브렌트유 기준인가? 선물 시세는 반영되었나? 변동성 계산에 사용된 표준편차 기간은 며칠인가? 이런 기본 정보 없이는 이 숫자를 믿을 수 없다."
+*   **페르소나 #040 (물류 컨설턴트):** "결과값이 너무 정적이다. '운송 방식'을 해상운송에서 항공운송으로 바꾸었을 때, 리드타임 단축에 따른 재고 회전율 상승과 창고비용 절감 효과까지 시뮬레이션되어야 진정한 분석이다. 지금은 그냥 덧셈, 뺄셈 수준이다."
 
-## 📋 검증 시나리오
+### 그룹 3: 혼란스러운 초보 창업가 (20/100)
+*   **페르소나 #051 (크라우드펀딩 준비 중인 1인 기업가):** "용어가 너무 어렵다. '지정학적 리스크', '선물환 계약'이 대체 뭔가? '부장님 코멘트'는 좋은데, 그 코멘트를 이해하기 위해 또 검색을 해야 한다. 나 같은 초보를 위한 '용어 해설' 팝업이라도 있어야 하는 것 아닌가?"
+*   **페르소나 #060 (스마트스토어 운영자):** "그래서 결국 뭘 해야 하는지 모르겠다. '전문가와 상담하라'는 말만 반복하는데, 그럼 이 앱은 왜 쓰는 건가? 상담으로 유도하기 위한 미끼 상품이라는 느낌을 지울 수 없다."
+*   **페르소나 #068 (대학생 예비 창업가):** "결과가 나오기까지 20초나 걸리는 것은 너무 길다. 그리고 분석이 실패했을 때, 내가 입력한 내용 중 정확히 어느 부분이 문제인지 짚어주지 않고 그냥 '다시 입력하라'고만 한다. 매우 불친절하다."
 
-### 시나리오 1: Amazon FBA Seller (41번 - 바쁜 셀러)
-**입력:** "5000 units of gummy candies from China to USA, selling on Amazon FBA with $5 retail price"
+### 그룹 4: 특수 분야 전문가 (15/100)
+*   **페르소나 #076 (의료기기 인증 컨설턴트):** "우리 분야는 'FDA' 한 단어로 끝나지 않는다. CE, MDR, GMP 등 수많은 인증의 조합이다. 당신들 AI가 이 복잡한 인증 트리를 이해하고 비용과 기간을 산출할 수 있나? 어림없는 소리다."
+*   **페르소나 #082 (위험물 운송 담당자):** "리튬 배터리 운송은 UN38.3 테스트뿐만 아니라, 포장 방식, 라벨링, 항공사 규정 등 수십 가지 변수가 더 있다. 당신들 시스템은 이런 '보이지 않는 비용'을 전혀 계산하지 못하고 있다."
+*   **페르소나 #088 (농산물 검역 담당):** "'신선식품' 카테고리는 너무 광범위하다. 망고와 아스파라거스는 검역 절차와 유통기한이 완전히 다르다. 이런 디테일 없이는 참고 자료 이상의 가치가 없다."
 
-**검증 포인트:**
-- [ ] 10초 안에 결과를 볼 수 있는가?
-- [ ] One-Glance Verdict (✅ GO / ⚠️ TEST / ❌ NO-GO)가 명확한가?
-- [ ] FBA Fee가 Size tier와 Peak season을 반영하는가?
-- [ ] Buy Box competitiveness hint가 있는가?
-
-**예상 결과:**
-- Verdict: ⚠️ TEST 또는 ✅ GO
-- FBA Snapshot에 Size tier 표시
-- Cash needed 계산 정확
-
----
-
-### 시나리오 2: CFO (62번, 93번)
-**입력:** "10000 units of phone cases from China to USA, retail price $15"
-
-**검증 포인트:**
-- [ ] Worst/Base/Best Case가 표시되는가?
-- [ ] Cashflow impact가 명확한가?
-- [ ] Variable vs Fixed cost가 구분되는가?
-- [ ] Annual P&L contribution이 계산되는가?
-
-**예상 결과:**
-- 3가지 시나리오 (Best/Base/Worst) 표시
-- "You must wire approximately $X" 메시지
-- Variable vs Fixed breakdown
-- "Assuming 3 turns/year..." 계산
+### 그룹 5: 냉소적인 기술 비평가 (15/100)
+*   **페르소나 #093 (IT 전문 기자):** "결국 프롬프트 엔지니어링으로 만든 그럴싸한 보고서 아닌가? 핵심 데이터 소스가 자체적인 것이 아니라면, 경쟁사가 더 좋은 LLM 모델을 쓰면 금방 따라잡힐 수 있는 '해자(moat)'가 없는 비즈니스 모델이다."
+*   **페르소나 #097 (경쟁사 PM):** "UI/UX가 2020년대 초반의 느낌이다. 세련미가 부족하고, '보고서 다운로드'나 '시나리오 비교' 같은 필수 기능도 없다. 가장 큰 문제는, 사용자가 이 앱을 다시 찾아와야 할 이유를 만들지 못한다는 것이다."
+*   **페르소나 #100 (정보보안 전문가):** "사용자가 입력한 민감한 소싱 정보(제품, 가격, 수량)를 어떻게 관리하는지에 대한 설명이 부족하다. 이 정보가 유출된다면, 한 회사의 비즈니스 전략 전체가 노출되는 것과 같다. 데이터 보안 정책을 더 명확히 제시해야 한다."
 
 ---
 
-### 시나리오 3: Compliance Officer (65번)
-**입력:** "5000 units of children's toys from China to USA"
-
-**검증 포인트:**
-- [ ] Regulated Category 뱃지가 표시되는가?
-- [ ] CPSIA, Prop 65 등 필수 인증이 나열되는가?
-- [ ] "This is not legal advice" 문구가 있는가?
-
-**예상 결과:**
-- ⚠️ Regulated Category: Children's Products (CPSIA) 표시
-- 필수 인증 체크리스트
-- Legal disclaimer
-
----
-
-### 시나리오 4: Risk Manager (64번)
-**입력:** "10000 units of electronics with batteries from China to USA"
-
-**검증 포인트:**
-- [ ] Risk Score (0-100)가 표시되는가?
-- [ ] Single point of failure 경고가 있는가?
-- [ ] Risk categories (Price/Lead time/Compliance/Reputation)가 구분되는가?
-- [ ] Risk score ≥60일 때 Review recommended 메시지가 있는가?
-
-**예상 결과:**
-- Risk Level: Elevated risk (Score: 60/100)
-- Single point of failure 경고
-- 4가지 리스크 카테고리 breakdown
-- Review recommended 메시지
-
----
-
-### 시나리오 5: Behavioral Economist (63번)
-**입력:** "8000 units of yoga mats from China to USA, retail $25"
-
-**검증 포인트:**
-- [ ] Anchoring: "Typical landed cost range: $X–$Y → Your deal: $Z"가 있는가?
-- [ ] Loss aversion: "If freight jumps 20%, margin drops to X%"가 있는가?
-- [ ] Industry benchmark 비교가 있는가?
-
-**예상 결과:**
-- Typical cost range vs Your deal 비교
-- Loss risk 경고
-- Industry average margin 비교
-
----
-
-### 시나리오 6: Customs Broker (51번, 99번)
-**입력:** "5000 units of food products from China to USA"
-
-**검증 포인트:**
-- [ ] HS Code가 "(Candidate, not confirmed)"로 표시되는가?
-- [ ] "Final classification may differ" 경고가 있는가?
-- [ ] Invoice undervaluation 경고가 있는가?
-
-**예상 결과:**
-- HS: 1704.90 (Candidate, not confirmed)
-- Jurisdiction-dependent 경고
-- Audit risk warning (if applicable)
-
----
-
-### 시나리오 7: Amazon Marketplace Operator (68번)
-**입력:** "3000 units of small electronics from China to USA, FBA, retail $12"
-
-**검증 포인트:**
-- [ ] FBA Fee에 Size tier가 반영되는가?
-- [ ] Peak season multiplier가 적용되는가?
-- [ ] Buy Box competitiveness hint가 있는가?
-
-**예상 결과:**
-- Small Standard tier 표시
-- Peak season (+10%) 표시 (if Oct-Dec)
-- Buy Box pricing hint
-
----
-
-### 시나리오 8: Trade Lawyer (66번)
-**입력:** "5000 units of apparel from China to USA"
-
-**검증 포인트:**
-- [ ] Incoterms가 명확히 표시되는가?
-- [ ] Tooltip으로 FOB/DDP 설명이 있는가?
-- [ ] "Under DDP, importer of record is typically the seller" 설명이 있는가?
-
-**예상 결과:**
-- Incoterms: FOB Shanghai + DDP Los Angeles
-- Tooltip with responsibility clarification
-- Legal-safe disclaimers
-
----
-
-### 시나리오 9: CFO (93번 - 재무제표)
-**입력:** "10000 units of consumer goods from China to USA, retail $20"
-
-**검증 포인트:**
-- [ ] Variable vs Fixed cost breakdown이 있는가?
-- [ ] Annual P&L contribution이 계산되는가?
-- [ ] Cash conversion cycle hint가 있는가?
-
-**예상 결과:**
-- Truly variable per unit vs Fixed/Allocation costs
-- "Assuming 3 turns/year, this contributes $X gross profit"
-- "From deposit to revenue: ~N days"
-
----
-
-### 시나리오 10: ESG Officer (96번)
-**입력:** "5000 units of sustainable products from China to USA, ocean freight"
-
-**검증 포인트:**
-- [ ] Carbon footprint structure가 있는가?
-- [ ] Sustainability note가 표시되는가?
-- [ ] Freight route/mode가 분리되어 있는가?
-
-**예상 결과:**
-- "Lower carbon footprint (ocean freight)" 메시지
-- Sustainability note 섹션
-- Future carbon calculation hooks
-
----
-
-## 🔍 실제 앱 실행 검증
-
-### 실행 명령
-```bash
-python -m streamlit run app.py
-```
-
-### 검증 체크리스트
-
-#### Landing Page (app.py)
-- [ ] Hero heading: "Know your landed cost before you wire a dollar"
-- [ ] Value prop: "Upload a product description once..."
-- [ ] Search bar placeholder: "Type a product you want to import..."
-- [ ] CTA button: "Start an analysis"
-- [ ] Brand line: "NexSupply — Make every box count."
-
-#### Analyze Page
-- [ ] Heading: "What do you want to ship?"
-- [ ] Subtitle: "Describe your product and shipment in one sentence..."
-- [ ] Textarea placeholder: "Two pallets of gummy candies..."
-- [ ] Empty state guidance: "Mention product, origin country..."
-- [ ] Advanced options panel (collapsed)
-- [ ] Button disabled when input < 10 chars
-
-#### Loading Page
-- [ ] "Analyzing your shipment..." heading
-- [ ] Progress hints: "Parsing your shipment details", "Checking costs and duties", "Building your report"
-- [ ] Long wait handling: "Still working, large shipments can take a bit longer"
-
-#### Results Page
-- [ ] Brand line at top
-- [ ] Verdict tag with color coding
-- [ ] Worst/Base/Best Case display
-- [ ] Cashflow impact message
-- [ ] Timestamp & FX assumptions
-- [ ] Two big metrics: Landed Cost / Unit, Net Margin %
-- [ ] Risk Level with score (0-100)
-- [ ] FBA Snapshot (if FBA)
-- [ ] HS Code labeling
-- [ ] Incoterms with tooltip
-- [ ] Regulated category detection
-- [ ] Notes fields (supplier/boss)
-- [ ] Follow-up suggestion
-- [ ] Email draft generator
-- [ ] Key Messages (consulting-ready)
-- [ ] Variable vs Fixed cost breakdown
-- [ ] ESG/Sustainability note
-- [ ] Legal disclaimers
-- [ ] Legacy message
-
----
-
-## 📊 발견된 이슈 (실제 실행 후 업데이트)
-
-### Critical Issues
-- [ ] (실행 후 발견된 이슈 기록)
-
-### Medium Priority
-- [ ] (실행 후 발견된 이슈 기록)
-
-### Low Priority / Nice-to-Have
-- [ ] (실행 후 발견된 이슈 기록)
-
----
-
-## ✅ 검증 완료 항목
-
-### Core Functionality
-- [x] Landing page loads
-- [x] Analyze page loads
-- [x] Input validation works
-- [x] Loading state displays
-- [x] Results page displays
-
-### UX Features
-- [x] Brand line present
-- [x] Verdict tag with colors
-- [x] Risk score calculation
-- [x] FBA fee structure
-- [x] Legal disclaimers
-- [x] Notes fields
-- [x] Email draft generator
-
----
-
-## 🎯 다음 단계
-
-1. **실제 앱 실행** - `python -m streamlit run app.py`
-2. **각 시나리오 테스트** - 위의 10개 시나리오 실행
-3. **이슈 기록** - 발견된 문제점 문서화
-4. **수정 작업** - Critical issues 우선 수정
-5. **재검증** - 수정 후 재테스트
-
----
-
-**Status:** 검증 대기 중  
-**Last Updated:** 2025-01-XX
-
+## 최종 결론: '차가운 현실'
+현재 버전은 "AI가 접목된 똑똑한 계산기"일 뿐, "대체 불가능한 무역 파트너"라는 비전에는 도달하지 못했다. 사용자는 더 깊은 데이터 근거, 더 높은 수준의 개인화, 그리고 더 구체적인 실행 방안을 원한다. '전문가'의 흉내를 내는 것을 넘어, 진짜 전문가의 업무를 '보조'하고 '강화'하는 방향으로 핵심 가치를 재정의해야 한다.

@@ -507,17 +507,27 @@ class RiskEngine:
                 description="첫 거래 시, 소량 발주를 통해 품질, 납기 준수, 커뮤니케이션 능력을 반드시 검증해야 합니다. Alibaba의 Gold Supplier 등급도 실제와는 차이가 있을 수 있습니다.",
                 actions=["공장 실사 또는 제3자 검수 진행", "단계별 대금 지급 조건(예: 선금 30%, 잔금 70%) 설정", "샘플과 양산품의 품질 일치 여부 확인"]
             ))
+# 3. Market Volatility Risk
+if any(keyword in search_text for keyword in ["oil", "plastic", "steel", "chip", "원유", "플라스틱", "철강"]):
+    warnings.append(RiskWarning(
+        category="Market",
+        risk_level=RiskLevel.HIGH,
+        title="💹 시장 리스크: 원자재 가격 변동성",
+        description="이 제품은 원자재 가격 변동에 민감하여, 생산 중 원가가 상승할 리스크가 있습니다. 이는 마진을 급격히 감소시킬 수 있습니다.",
+        actions=["고정 가격 계약 체결 시도", "원자재 가격 상승 시 원가 분담 조건 협의", "선물 거래를 통한 헷징(Hedging) 고려"]
+    ))
 
-        # 3. Market Volatility Risk
-        if any(keyword in search_text for keyword in ["oil", "plastic", "steel", "chip", "원유", "플라스틱", "철강"]):
-            warnings.append(RiskWarning(
-                category="Market",
-                risk_level=RiskLevel.HIGH,
-                title="💹 시장 리스크: 원자재 가격 변동성",
-                description="이 제품은 원자재 가격 변동에 민감하여, 생산 중 원가가 상승할 리스크가 있습니다. 이는 마진을 급격히 감소시킬 수 있습니다.",
-                actions=["고정 가격 계약 체결 시도", "원자재 가격 상승 시 원가 분담 조건 협의", "선물 거래를 통한 헷징(Hedging) 고려"]
-            ))
+# 4. Category-Specific Nuances (Feedback #088)
+if "mango" in search_text or "asparagus" in search_text:
+    warnings.append(RiskWarning(
+        category="Regulatory",
+        risk_level=RiskLevel.MEDIUM,
+        title="🌿 특별 검역 대상 품목",
+        description="망고, 아스파라거스 등 특정 신선 농산물은 통관 시 특별 검역 절차를 거치므로, 일반 농산물 대비 3~5일의 추가 시간이 소요될 수 있습니다.",
+        actions=["통관사에 특별 검역 필요 여부 사전 문의", "유통기한을 고려하여 항공 운송 검토"]
+    ))
 
+return warnings
         # 4. Category-Specific Nuances (Feedback #088)
         if "mango" in search_text or "asparagus" in search_text:
             warnings.append(RiskWarning(
@@ -528,6 +538,15 @@ class RiskEngine:
                 actions=["통관사에 특별 검역 필요 여부 사전 문의", "유통기한을 고려하여 항공 운송 검토"]
             ))
         
+        if "battery" in search_text or "lithium" in search_text:
+            warnings.append(RiskWarning(
+                category="Cost",
+                risk_level=RiskLevel.MEDIUM,
+                title="💰 숨겨진 비용: 위험물 취급",
+                description="리튬 배터리는 위험물로 분류되어, 일반 화물에 없는 추가 비용이 발생합니다: UN38.3 테스트(약 $500-2000), 위험물 취급 수수료, 특수 포장 비용 등.",
+                actions=["공급업체에 UN38.3 테스트 리포트 요청", "포워더에게 위험물 운송 할증료 확인"]
+            ))
+
         return warnings
 
     def get_macro_analysis_scores(self, market: Optional[str], product_category: Optional[str]) -> Dict[str, Any]:

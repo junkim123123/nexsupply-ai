@@ -37,9 +37,16 @@ jobs:
         SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
         SUPABASE_KEY: ${{ secrets.SUPABASE_KEY }}
       run: |
-        pytest tests/ -v
+        # API 키가 있는 경우에만 전체 테스트 실행, 없으면 AI 테스트는 건너뛰기
+        if [ -z "${{ secrets.GEMINI_API_KEY }}" ]; then
+          pytest tests/ -v --skip-ai-tests
+        else
+          pytest tests/ -v
+        fi
     
     - name: Run sample analysis
+      # API 키가 있는 경우에만 샘플 분석 실행
+      if: secrets.GEMINI_API_KEY != ''
       env:
         GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
       run: |

@@ -257,6 +257,7 @@ class TestCostScenarios:
 class TestRiskScores:
     """리스크 스코어 관련 테스트"""
     
+    @pytest.mark.ai
     def test_risk_score_ranges(self):
         """
         테스트: 리스크 스코어 값이 올바른 범위인지
@@ -280,6 +281,7 @@ class TestRiskScores:
             assert 0.0 <= risk_scores[key] <= 100.0, \
                 f"{key}는 0-100 범위여야 함: {risk_scores[key]}"
     
+    @pytest.mark.ai
     def test_risk_score_consistency(self):
         """
         테스트: overall_risk_score가 sub-scores의 가중 평균과 일치하는지
