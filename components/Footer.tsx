@@ -36,9 +36,9 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Solutions</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">For FBA</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">For Brands</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">For Enterprise</a></li>
+              <li><a href="#fba" className="hover:text-white transition-colors">For FBA</a></li>
+              <li><a href="#brands" className="hover:text-white transition-colors">For Brands</a></li>
+              <li><a href="#enterprise" className="hover:text-white transition-colors">For Enterprise</a></li>
             </ul>
           </div>
 
@@ -46,9 +46,9 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Resources</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">API Docs</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
+              <li><a href="mailto:outreach@nexsupply.net" className="hover:text-white transition-colors">API Docs</a></li>
+              <li><a href="mailto:outreach@nexsupply.net" className="hover:text-white transition-colors">Blog</a></li>
+              <li><a href="mailto:outreach@nexsupply.net" className="hover:text-white transition-colors">Help Center</a></li>
             </ul>
           </div>
 
@@ -56,8 +56,8 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4">Enterprise</h4>
             <ul className="space-y-2 text-sm text-gray-400">
-              <li><a href="#" className="hover:text-white transition-colors">Enterprise Solutions</a></li>
-              <li><a href="#" className="hover:text-white transition-colors">Partnership</a></li>
+              <li><a href="mailto:outreach@nexsupply.net" className="hover:text-white transition-colors">Enterprise Solutions</a></li>
+              <li><a href="mailto:outreach@nexsupply.net" className="hover:text-white transition-colors">Partnership</a></li>
               <li><a href="mailto:outreach@nexsupply.net" className="hover:text-white transition-colors">Contact Sales</a></li>
             </ul>
           </div>
@@ -83,9 +83,9 @@ export default function Footer() {
             © 2025 NexSupply. All rights reserved.
           </p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</a>
-            <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
+            <a href="mailto:outreach@nexsupply.net" className="text-gray-400 hover:text-white text-sm transition-colors">Privacy</a>
+            <a href="mailto:outreach@nexsupply.net" className="text-gray-400 hover:text-white text-sm transition-colors">Terms</a>
+            <a href="mailto:outreach@nexsupply.net" className="text-gray-400 hover:text-white text-sm transition-colors">Cookie Policy</a>
           </div>
         </div>
       </div>

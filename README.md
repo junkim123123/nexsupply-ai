@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# NexSupply Landing Page
 
-## Getting Started
+NexSupply 랜딩 페이지 - B2B 글로벌 소싱 플랫폼
 
-First, run the development server:
+## 기술 스택
+
+- **Next.js 16** (App Router)
+- **React 19**
+- **TypeScript**
+- **Tailwind CSS v4**
+
+## 시작하기
 
 ```bash
+# 의존성 설치
+npm install
+
+# 개발 서버 실행
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+브라우저에서 [http://localhost:3000](http://localhost:3000)을 열어 확인하세요.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 프로젝트 구조
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+landing-page/
+├── app/
+│   ├── page.tsx          # 메인 페이지
+│   ├── layout.tsx        # 레이아웃
+│   └── globals.css       # 전역 스타일
+├── components/
+│   ├── NavigationBar.tsx      # 네비게이션 바
+│   ├── HeroSection.tsx        # 히어로 섹션
+│   ├── ValueProposition.tsx   # 가치 제안
+│   ├── CoreFeatures.tsx       # 핵심 기능
+│   ├── DashboardPreview.tsx   # 대시보드 미리보기
+│   ├── SocialProof.tsx        # 소셜 프루프
+│   ├── Pricing.tsx            # 가격 정책
+│   └── Footer.tsx             # 푸터
+└── public/                    # 정적 파일
+```
 
-## Learn More
+## 주요 섹션
 
-To learn more about Next.js, take a look at the following resources:
+1. **Global Navigation Bar** - 로고, 메뉴, CTA 버튼
+2. **Hero Section** - 메인 헤드라인과 제품 분석 입력
+3. **Value Proposition** - 3가지 타겟 페르소나 (Brands, FBA, Enterprise)
+4. **Core Features** - True Landed Cost, Regulatory Shield, Supplier Vetting
+5. **Dashboard Preview** - Mission Control 대시보드 미리보기
+6. **Social Proof** - 글로벌 리더 기업 로고
+7. **Pricing** - 3가지 가격 티어 (Starter, Growth, Corporate)
+8. **Footer** - 링크 및 저작권 정보
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 디자인 시스템
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- **Primary Colors**: Deep Navy (#111827), Steel Grey (#1f2937)
+- **Accent Colors**: Blue (#3b82f6), Cyan (#06b6d4), Purple (#a855f7)
+- **Font**: Inter (Google Fonts)
 
-## Deploy on Vercel
+## 빌드
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# 프로덕션 빌드
+npm run build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# 프로덕션 서버 실행
+npm start
+```

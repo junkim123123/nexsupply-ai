@@ -1,6 +1,6 @@
 export default function Pricing() {
   return (
-    <section className="bg-gray-900 py-20">
+    <section id="pricing" className="bg-gray-900 py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
@@ -38,9 +38,12 @@ export default function Pricing() {
                 Email support
               </li>
             </ul>
-            <button className="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition-colors">
+            <a 
+              href="mailto:outreach@nexsupply.net?subject=Start Free Trial"
+              className="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition-colors block text-center"
+            >
               Start Free Trial
-            </button>
+            </a>
           </div>
 
           {/* Growth */}
@@ -76,9 +79,12 @@ export default function Pricing() {
                 Priority support
               </li>
             </ul>
-            <button className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-3 rounded-lg font-medium hover:from-blue-600 hover:to-cyan-500 transition-all shadow-lg shadow-blue-500/50">
+            <a 
+              href="mailto:outreach@nexsupply.net?subject=Start Free Trial - Growth Plan"
+              className="w-full bg-gradient-to-r from-blue-500 to-cyan-400 text-white py-3 rounded-lg font-medium hover:from-blue-600 hover:to-cyan-500 transition-all shadow-lg shadow-blue-500/50 block text-center"
+            >
               Start Free Trial
-            </button>
+            </a>
           </div>
 
           {/* Corporate */}
@@ -111,7 +117,7 @@ export default function Pricing() {
               </li>
             </ul>
             <a 
-              href="mailto:outreach@nexsupply.net"
+              href="mailto:outreach@nexsupply.net?subject=Corporate Plan Inquiry"
               className="w-full bg-gray-700 hover:bg-gray-600 text-white py-3 rounded-lg font-medium transition-colors block text-center"
             >
               Contact Sales
